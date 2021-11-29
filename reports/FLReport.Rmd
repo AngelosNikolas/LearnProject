@@ -26,7 +26,49 @@ Learning Analytics refers to the collection and analysis of data about learners 
 ## Determining data mining goals
 In educational data mining it is important to classify learner performance and engagement. Furthermore, it is important to assess the material provided and the levels of engagement their provided. Some of the data mining goals at this stage are:
 
-1. Learner background information
-2. Production of learner course completion across all runs
-3. Assessing the course material that provide a sense of performance
-4. Analysis on some of the data can provide further context in term of learner engagment
+1. Learner background information.
+2. Extraction of learner course completion across all runs.
+3. Assessing the course material that provide a sense of performance.
+4. Analysis on the data that provide further context in terms of learner engagement.
+5. Various useful information extracted by the data mining process
+
+In addition, a successful Data Mining process will be derived by:
+
+- The reliability of the data. 
+- The importance of the results in terms of context, clarity and usefulness.
+- The reliability of the processes conducted to extract results.
+- The appropriate method used to provide a coherent discussion,
+
+## Project plan 
+The tools and techniques that are going to be used include Git version control, ProjectTemplate for R and RMarkdown. Git version control is a system that allows to keep track the changes made to the code over time. As such, collaboration is made possible because specific changes on the work are tracked and tagged by various contributors. The work for this project will be conducted by the author of this report, allowing for further expansion of the work with other collaborators in the future. ProjectTemplate in R allows for the automation of new statistical analysis projects. In addition, it provides a directory structure that automate data loading, preprocessing, library importing and testing. Finally, RMarkdown is a versatile open source markup language and can be used to format plain text while enabling the user to directly post their work on web pages if they must.
+
+The project plan consists of the tools and techniques mentioned above to dwell into the data provided from the organization and produce a coherent structured report. The project plan includes the data understanding divided by some appropriate exploration and discussions. Next,is data preparation where the cleaning and construction of the data will take place. Finally, the modelling where in depth analysis will commence. The project plan will be layed out in detail in the next chapters of this report.
+
+# Data Understadning
+
+## Collection of initial data
+The data are collected and loaded in the ProjectTemplate environment which has been set as a working directory using Git Bash. With the data loaded comes 7 pdf files containing the format of the material of each run commenced.
+
+## Data Description
+The data that will be utilized consists of 53 csv files. The runs does not share the same number of csv files it noticeable that are inclusions and exclusions when each run commenced. This will be further explored in the data exploration. 
+
+The distinct csv files across all runs are as follows:
+
+1. Archetype Survey responses
+2. Enrollments
+3. Leaving survey responses 
+4. Question responses
+5. Step Activity
+6. Weekly sentiment survey responses
+7. Team members
+8. Video stats
+
+### Decription of the data sets content
+The archetype data set consist of the learner and an  archetype answer regarding their general behavior. The enrollment data set consists of enrolled learners and 13 variables that provide numerous information such as enroll dates, fully completion dates, gender and more.
+Leaving survey responses includes of course the reason the learners gave for abandoning the course. The question responses data set consists of detailed learner performance regarding quizzes provided throughout the course. The step activity includes step progression for each week as well as started and completion dates for each step in the course. The weekly sentiment responses include weekly feedback from the learners regarding weekly progress. The team members data set consists of description regarding the roles of the teaching team. Lastly, The video stats data set consist of various statistics regarding the video material on the course for example views, percentages watched, devices, geolocation and more.
+
+## Data exploration
+
+By exploring the data several questions surfaced  regarding some data sets. The data sets that was deemed appropriate for the outlined goals and business objectives includes the enrollment, question responses, step activity, video stats, leaving survey and weekly survey responses.
+
+### Enrollemnt dataset
