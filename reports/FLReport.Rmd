@@ -1,5 +1,6 @@
 ---
-title: "FLReport"
+title: "Data Management and Exploratory Data Analysis"
+Name: Angelos Nikolas
 output: pdf_document
 ---
 
@@ -14,4 +15,18 @@ library("ProjectTemplate")
 load.project()
 
 ```
+# Buisness understanding
 
+## Business objectives
+This report is focusing on Learning Analytics a fast developing domain of Data Science. In Learning Analytics organizations can extract context and better understanding of their programs. The goal is to derive suitable business results while improving employee productivity. The discoveries made could allow learning organizations to pick and choose learning models that works best, resulting to their organizations increase profit while lowering the time spent in developing the learning material. The organization in question provides an online course on cyber security, they have conducted 7 runs for this course. Further discussion on the course as a whole and differences between some of the runs will take place. The main goal is to produce findings derived from the data collected as well as further investigation on some of the most noticeable and interesting topics.  
+
+## Assess situation
+Learning Analytics refers to the collection and analysis of data about learners and their environments. Therefore, it is significant to create tools that provide and in depth understanding of the learners background undertaking the course. The scope of this analysis is improve the learning outcomes of the course both as s business standpoint and how its best received by the learners.
+
+## Determining data mining goals
+In educational data mining it is important to classify learner performance and engagement. Furthermore, it is important to assess the material provided and the levels of engagement their provided. Some of the data mining goals at this stage are:
+
+1. Learner background information
+2. Production of learner course completion across all runs
+3. Assessing the course material that provide a sense of performance
+4. Analysis on some of the data can provide further context in term of learner engagment
