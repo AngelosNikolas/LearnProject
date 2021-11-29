@@ -68,7 +68,49 @@ The archetype data set consist of the learner and an  archetype answer regarding
 Leaving survey responses includes of course the reason the learners gave for abandoning the course. The question responses data set consists of detailed learner performance regarding quizzes provided throughout the course. The step activity includes step progression for each week as well as started and completion dates for each step in the course. The weekly sentiment responses include weekly feedback from the learners regarding weekly progress. The team members data set consists of description regarding the roles of the teaching team. Lastly, The video stats data set consist of various statistics regarding the video material on the course for example views, percentages watched, devices, geolocation and more.
 
 ## Data exploration
-
 By exploring the data several questions surfaced  regarding some data sets. The data sets that was deemed appropriate for the outlined goals and business objectives includes the enrollment, question responses, step activity, video stats, leaving survey and weekly survey responses.
 
-### Enrollemnt dataset
+### Enrollement data set (Run 1)
+The enrollment data set consists of the learners as our observations number and each learner has 13 variables. 
+```{r EnrollmentsHead}
+head(cyber.security.1_enrolments)
+```
+All 13 variable are stored as characters it noticeable that numerous rows are empty and some are stored as Unknown. 
+
+### Question response data set (Run 1)
+The question response data set consists of the learners as our observations number and for each learner there are 10 variables
+```{r}
+head(cyber.security.1_question.response)
+```
+Some variables are stored as characters namely learner_id, quiz_question, question_type response, submitted_at, correct. The rest are stored as integers expect cloze_response that is logical and is filled with NAs.It is advicable to further investigate regarding inconsistencies.
+
+### Step activity data set (Run 1)
+The step activity data set consists 143092 observations with 6 variables.
+```{r}
+head(cyber.security.1_step.activity)
+```
+Some variables are stored as characters namely learner_id, first_visited_at and last_completed_at the others are stored as integers except the step variable which is double.
+
+### Video stats data set (Run 3)
+The video stats data set consists of 13 observation which refer to the video step position over the 3 weeks of the course and 28 variables. It's important to mention that the video stats data is not present in the first 2 runs.
+```{r}
+head(cyber.security.3_video.stats)
+```
+In the stat video we have variables stored as characters for the description of the videos,integers for counts and doubles for percentages.
+
+### Leaving survey responses (Run 5)
+In the leaving survey response data set there are 174 learners with 8 variables.
+```{r}
+head(cyber.security.5_leaving.survey.responses)
+```
+By reviewing the data it is noticeable that learners that left the course are assigned new IDs regarding their leaving survey that are stored as integers. Furthermore, The last_completed step variables are stored as doubles while the last_completed_step_number are stored as integers. NAs can be spotted instantly further investigation will be required to assess the quality of the set. 
+
+### Weekly survey responses data set (Run 6)
+The weekly survey responses consist of 80 observations (learners) and 5 variables.
+```{r}
+head(cyber.security.6_weekly.sentiment.survey.responses)
+```
+Similarly with the leaving responses they are assigned a survey ID,  variables are stored as characters for the responded_at and the reason. The week_number and the experience_rating are stored as integers. It noticeable
+
+In the enrollment data set it is possible to extract a count of the people enrolled and their background information. In addition, we can calculate the percentage of the learners that fully participated in the course for the first run.
+
