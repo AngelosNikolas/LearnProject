@@ -173,7 +173,39 @@ Similarly with the leaving survey this data set will be utilized for context if 
 
 Analysis goals:
 
-1. Categorizing expierince rating for steps outlined.
+1. Categorizing experience rating for steps outlined.
 
-## Data cleaning
+## Data cleaning and data construction
+
+###Enrollement cleaning
+
+By checking for NAs in the enrollment data set it returns 13 NAs.By running the code: 
+```{r}
+cyber.security.1_enrolments= cyber.security.1_enrolments[rowSums(is.na(cyber.security.1_enrolments)) == 0,]
+sum(is.na(cyber.security.1_enrolments))
+```
+All NAs from the data set were omitted. in addition where applicable its possible to remove only rows that are fully NA using:
+```{r}
+cyber.security.1_enrolments[rowSums(is.na(cyber.security.1_enrolments)) != ncol(cyber.security.1_enrolments), ] 
+```
+Next checking for duplicates in the learner_id column:
+```{r}
+cyber.security.1_enrolments$learner_id[duplicated(cyber.security.1_enrolments$learner_id)]
+
+```
+### Enrolment data constuction for analysis
+For the enrollment a new data frame is constructed containing the learners that fully participated in the course. Furthermore, this new subset is filtered by gender, education and employment status. Lastly, the same filters are applied in the full data set. 
+
+### Question response cleaning
+
+Firstly the empty cloze_response column is removed. Then we check for NAs it appears there are none:
+```{r}
+sum(is.na(cyber.security.1_question.response))
+```
+
+### QUestion response data constuction for analysis
+
+For the question response data set 3 data frames are constructed filtered by the correct answers for the questions for each weak respectively. This will later utilized to compare performance in terms of success. Furthermore, the worst perfoming week will be annualized further.
+
+### Step activity
 
