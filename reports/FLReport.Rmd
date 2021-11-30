@@ -44,7 +44,7 @@ The tools and techniques that are going to be used include Git version control, 
 
 The project plan consists of the tools and techniques mentioned above to dwell into the data provided from the organization and produce a coherent structured report. The project plan includes the data understanding divided by some appropriate exploration and discussions. Next,is data preparation where the cleaning and construction of the data will take place. Finally, the modelling where in depth analysis will commence. The project plan will be layed out in detail in the next chapters of this report.
 
-# Data Understadning
+# Data Understading
 
 ## Collection of initial data
 The data are collected and loaded in the ProjectTemplate environment which has been set as a working directory using Git Bash. With the data loaded comes 7 pdf files containing the format of the material of each run commenced.
@@ -117,5 +117,63 @@ From the exploration in most data sets inconsistencies were noticed. Specificall
 
 This report is going to cover specific topics and will be using a portion of the data sets available to explore and perform an in depth analysis.In the chapter data preparation will commence. After the selection of relevant data sets and rationale for inclusion and exclusion, the cleaning process will be documented where is applicable.
 
-In the enrollment data set it is possible to extract a count of the people enrolled and their background information. In addition, we can calculate the percentage of the learners that fully participated in the course for the first run.
+# Data preparation
+
+## Selection of data
+
+In this chapter an explanation will be given for the selection of the data that was previous discussed in data exploration. Each data set will be discussed and goals will be outlined for the production of the analysis. Furthermore, steps taken for cleaning, construction, integration and reformation will be discussed. It is important to state that the data preparation takes into account all the goals and methods outlined above. Specifically, general statistics, engagement, performance and various elements that will be derived from the analysis.
+
+### Enrollment
+In the enrollment data set it is possible to extract a count of the people enrolled and their background information. In addition, we can calculate the percentage of the learners that fully participated in the course for the each run. This will show a scale of popularity among the runs and completion rates. Also some generic statistics about the learners.
+
+Analysis goals:
+
+1. Learners information
+2. Course Engagement rates 
+
+### Questions responses 
+The question response data set contain variables regarding quiz performance for each learner. Quizzes are a satisfactory way to access learner performance regarding the teaching material provided across 3 weeks for each run where is applicable.
+
+Analysis goals:
+
+1. Success rate for every quiz.
+2. Success rate based on each week.
+3. Correlation regarding the material and failure rate regarding the material.
+
+### Step activity
+Step activity is particularly useful data set because it contains details about each step across the three weeks of the course. It is possible to derive results that would provide vital information on the teaching material and the reception it recieved from the learners.
+
+Analysis goals:
+
+1. Time it took learners to complete each week. 
+2. Percentage of learners that completed every step.
+3. Percentage of learners that completed each each week.
+4 Completion ration for each step.
+5. Most popular step type discussion.
+
+### Video stats 
+The video stats data set will enable the analysis to dwell deeper into this specific step type in order to get some context and some statistics of how well this step type was received by the learners as well as how it was conducted by the teaching team. Several assumptions could be taken beforehand that will be discussed in the analysis section.
+
+Analysis goals:
+
+1. Percentages of video views for each step.
+2. Percentages of viewers filtered by device utilized
+3. Percentages of viewers from each continent.
+
+### Question about leaving survey
+This data set will be used to provide context for the discussion of the results if its applicable.
+
+Analysis goals:
+
+1. Categorizing leaving reasons and allocation of learners
+2. Comparison with step analysis results to derive some context in terms of steps quality.
+
+### Questions about weekly survey
+Similarly with the leaving survey this data set will be utilized for context if the findings are relevant.
+
+Analysis goals:
+
+1. Categorizing expierince rating for steps outlined.
+
+## Data cleaning
 
