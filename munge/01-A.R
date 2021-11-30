@@ -1,5 +1,19 @@
-#Pre-processing script.
-distinct(cyber.security.1_enrolments,learner_id)
+#Enrollments run 1 pre-processing.
+library(dplyr)
+library(tidyverse)
+
+#Checking and remove NAs
+sum(is.na(cyber.security.1_enrolments))
+cyber.security.1_enrolments= cyber.security.1_enrolments[rowSums(is.na(cyber.security.1_enrolments)) == 0,]
+sum(is.na(cyber.security.1_enrolments))
+
+# Remove rows with only NAs
+cyber.security.1_enrolments[rowSums(is.na(cyber.security.1_enrolments)) != ncol(cyber.security.1_enrolments), ] 
+
+#Checking for duplicates
+cyber.security.1_enrolments$learner_id[duplicated(cyber.security.1_enrolments$learner_id)]
+
+#############DATA CONSTRUCTION##############
 Fully_finished1 = cyber.security.1_enrolments [!(!is.na(cyber.security.1_enrolments$fully_participated_at) & cyber.security.1_enrolments$fully_participated_at==""), ]
 Fully_finished2 = cyber.security.2_enrolments [!(!is.na(cyber.security.2_enrolments$fully_participated_at) & cyber.security.2_enrolments$fully_participated_at==""), ]
 Fully_finished3 = cyber.security.3_enrolments [!(!is.na(cyber.security.3_enrolments$fully_participated_at) & cyber.security.3_enrolments$fully_participated_at==""), ]
@@ -18,13 +32,12 @@ fully_participated5 = (22*100)/3544
 fully_participated6 = (31*100)/3175
 fully_participated7 = (43*100)/2342
 
-#Allocating genders
-MaleLearners = filter(cyber.security.1_enrolments, gender == "male")
-FemaleLearners = filter(cyber.security.1_enrolments, gender == "female")
-UnknownGenderLearners= filter(cyber.security.1_enrolments, gender == "Unknown")
+#Allocating genders for fully participated learners
+MaleLearners1 = filter(Fully_finished1, gender == "male")
+FemaleLearners1 = filter(Fully_finished1, gender == "female")
+UnknownGenderLearners1= filter(Fully_finished1, gender == "Unknown")
 
 #Allocating education levels
-distinct(cyber.security.1_enrolments, highest_education_level)
 univercityDegree = filter(cyber.security.1_enrolments, highest_education_level == "university_degree")
 univercitydoctorate  = filter(cyber.security.1_enrolments, highest_education_level == "university_doctorate")
 professional  = filter(cyber.security.1_enrolments, highest_education_level == "professional")
@@ -33,3 +46,16 @@ UnknownEducation = filter(cyber.security.1_enrolments, highest_education_level =
 #Allocating employment status
 distinct(cyber.security.1_enrolments, employment_status)
 UnknownEmployment = filter(cyber.security.1_enrolments, employment_status == "Unknown")   
+
+########################################################################################################################
+#Question.response data set prepossessing 
+
+#Remove empty column
+cyber.security.1_question.response = select(cyber.security.1_question.response, -c(cloze_response))
+
+# Check for NAs 
+sum(is.na(cyber.security.1_question.response))
+
+#############DATA CONSTRUCTION##############
+str(cyber.security.1_question.response)
+
