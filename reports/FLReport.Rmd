@@ -110,7 +110,12 @@ The weekly survey responses consist of 80 observations (learners) and 5 variable
 ```{r}
 head(cyber.security.6_weekly.sentiment.survey.responses)
 ```
-Similarly with the leaving responses they are assigned a survey ID,  variables are stored as characters for the responded_at and the reason. The week_number and the experience_rating are stored as integers. It noticeable
+Similarly with the leaving responses they are assigned a survey ID,  variables are stored as characters for the responded_at and the reason. The week_number and the experience_rating are stored as integers. It noticeable that some responses are missing for rating reason.
+
+## Verification of data quality
+From the exploration in most data sets inconsistencies were noticed. Specifically, same type of variables where stored as different types, multiple empty rows where discovered, some rows where labeled Unknown. In addition, multiple data sets contain NAs, some columns were empty and in some of the responses surveys the characters contained symbols.
+
+This report is going to cover specific topics and will be using a portion of the data sets available to explore and perform an in depth analysis.In the chapter data preparation will commence. After the selection of relevant data sets and rationale for inclusion and exclusion, the cleaning process will be documented where is applicable.
 
 In the enrollment data set it is possible to extract a count of the people enrolled and their background information. In addition, we can calculate the percentage of the learners that fully participated in the course for the first run.
 
