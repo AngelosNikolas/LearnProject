@@ -115,7 +115,7 @@ Similarly with the leaving responses they are assigned a survey ID,  variables a
 ## Verification of data quality
 From the exploration in most data sets inconsistencies were noticed. Specifically, same type of variables where stored as different types, multiple empty rows where discovered, some rows where labeled Unknown. In addition, multiple data sets contain NAs, some columns were empty and in some of the responses surveys the characters contained symbols.
 
-This report is going to cover specific topics and will be using a portion of the data sets available to explore and perform an in depth analysis.In the chapter data preparation will commence. After the selection of relevant data sets and rationale for inclusion and exclusion, the cleaning process will be documented where is applicable.
+This report is going to cover specific topics and will be using a portion of the data sets available to explore and perform an in depth analysis. After the selection of relevant data sets and rationale for inclusion and exclusion, the cleaning process will be documented where is applicable. In the question response data set sever entries were discovered for some of the questions, the assumption is that the learners were able to resubmit the quiz question if they made a mistake so the focus is sifted to the quiz quality  rather than learner performance. In the step activities data set a mistake was discovered regarding how the steps number variable were recorded and stored appropriate transformation will take place.
 
 # Data preparation
 
@@ -136,12 +136,11 @@ The question response data set contain variables regarding quiz performance for 
 
 Analysis goals:
 
-1. Success rate for every quiz.
-2. Success rate based on each week.
-3. Correlation regarding the material and failure rate regarding the material.
+1. Success rate based on each week.
+2. Correlation and failure statistics regarding the material.
 
 ### Step activity
-Step activity is particularly useful data set because it contains details about each step across the three weeks of the course. It is possible to derive results that would provide vital information on the teaching material and the reception it recieved from the learners.
+Step activity is a particularly useful data set because it contains details about each step across the three weeks of the course. It is possible to derive results that would provide vital information on the teaching material and the reception it received from the learners.
 
 Analysis goals:
 
@@ -197,15 +196,20 @@ cyber.security.1_enrolments$learner_id[duplicated(cyber.security.1_enrolments$le
 For the enrollment a new data frame is constructed containing the learners that fully participated in the course. Furthermore, this new subset is filtered by gender, education and employment status. Lastly, the same filters are applied in the full data set. 
 
 ### Question response cleaning
-
 Firstly the empty cloze_response column is removed. Then we check for NAs it appears there are none:
 ```{r}
 sum(is.na(cyber.security.1_question.response))
 ```
 
 ### QUestion response data constuction for analysis
+For the question response data set 3 data frames are constructed filtered by the correct answers for the questions for each week respectively. This will later utilized to compare performance in terms of success. Furthermore, the worst performing week will be analyzed further. The results will be stored inside a table.
 
-For the question response data set 3 data frames are constructed filtered by the correct answers for the questions for each weak respectively. This will later utilized to compare performance in terms of success. Furthermore, the worst perfoming week will be annualized further.
+### Step activity Cleaning
+The step activity has an issue on the step number variable. Specifically is not possible to distinguish the 1.1 step from 1.10, to fix that problem multiplication by 100 took place so now 101 refers to step 1.1 and 110 to step 1.10. The data set does not contain any NA rows. In terms of quality the step activity can be considered appropriate for the work intended.
 
-### Step activity
+### Step activity data construction for analysis
+The step activity data sets are split into 3 sets for each weak, the goal is to derive completion percentages for all steps in each week and then investigate all steps on the best performing week. The resulted percentages will be stored inside a table to be utilized in the analysis.
+
+
+
 
