@@ -51,7 +51,7 @@ UnknownEmployment = filter(cyber.security.1_enrolments, employment_status == "Un
 #Question.response data set prepossessing 
 
 #Remove empty column
-#cyber.security.1_question.response = select(cyber.security.1_question.response, -c(cloze_response))
+cyber.security.1_question.response = select(cyber.security.1_question.response, -c(cloze_response))
 
 # Check for NAs 
 sum(is.na(cyber.security.1_question.response))
@@ -80,7 +80,7 @@ Week3Correct =  filter(cyber.security.1_question.response, correct == "true" )
 cyber.security.1_step.activity$step = cyber.security.1_step.activity$week_number*100 + cyber.security.1_step.activity$step_number
 
 #Checking for NAs
-sum(is.na(cyber.security.1_step.activity:learner_id))
+sum(is.na(cyber.security.1_step.activity$learner_id))
 
 
 #####################DATA CONSTRUCTION######################################
@@ -104,6 +104,8 @@ filter(Week2Steps1 , last_completed_at == "")
 Week3Steps1 = filter(cyber.security.1_step.activity, week_number == 3)
 #Extract the number of how many didnt completed the steps
 filter(Week3Steps1 , last_completed_at == "")
+
+
 
 
 
