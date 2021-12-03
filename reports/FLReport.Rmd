@@ -210,6 +210,11 @@ The step activity has an issue on the step number variable. Specifically is not 
 ### Step activity data construction for analysis
 The step activity data sets are split into 3 sets for each weak, the goal is to derive completion percentages for all steps in each week and then investigate all steps on the best performing week. The resulted percentages will be stored inside a table to be utilized in the analysis.
 
+###Video stats cleaning 
+In video stats data set the last column is empty and will be removed but in general the set does not contain any NA rows or other inconsistencies that were discovered previously the data stored are ready to be utilized for analysis.
 
+### Video stats data construction for analysis
+For the analysis the total_views column is needed alongside the video_duration and the step_position to investigate engagement e.g. the relation of the video lengths and the views for each step. Also, the columns regarding the devices used for viewing will be kept to provide an understanding of the viewing circumstances. Lastly, the columns regarding the continents will be used to provide general statistics regarding the videos.
 
+Three new data frame were constructed for the views, devices and continents.
 
