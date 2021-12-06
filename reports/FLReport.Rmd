@@ -18,13 +18,13 @@ load.project()
 # Buisness understanding
 
 ## Business objectives
-This report is focusing on Learning Analytics a fast developing domain of Data Science. In Learning Analytics organizations can extract context and better understanding of their programs. The goal is to derive suitable business results while improving employee productivity. The discoveries made could allow learning organizations to pick and choose learning models that works best, resulting to their organizations increase profit while lowering the time spent in developing the learning material. The organization in question provides an online course on cyber security, they have conducted 7 runs for this course. Further discussion on the course as a whole and differences between some of the runs will take place. The main goal is to produce findings derived from the data collected as well as further investigation on some of the most noticeable and interesting topics.  
+This report is focusing on Learning Analytics a fast developing domain of Data Science. In Learning Analytics organizations can extract context and better understanding of their programs. The goal is to derive suitable business results while improving employee productivity. The discoveries made could allow learning organizations to pick and choose learning models that works best, resulting to their organizations increase profit while lowering the time spent in developing the learning material. The organization in question provides an online course on cyber security, they have conducted 7 runs for this course. Further discussion on the course as a whole and differences between some of the runs will commence. The main objective is to produce findings derived from the data collected as well as further investigation on some of the most noticeable and interesting topics.  
 
 ## Assess situation
-Learning Analytics refers to the collection and analysis of data about learners and their environments. Therefore, it is significant to create tools that provide and in depth understanding of the learners background undertaking the course. The scope of this analysis is improve the learning outcomes of the course both as s business standpoint and how its best received by the learners.
+Learning Analytics refers to the collection and analysis of data about learners and their environments. Therefore, it is significant to create tools that provide and in depth understanding of the learners background undertaking the course. The scope of this analysis is to improve the learning outcomes of the course both from a business standpoint and how its best received by the learners.
 
 ## Determining data mining goals
-In educational data mining it is important to classify learner performance and engagement. Furthermore, it is important to assess the material provided and the levels of engagement their provided. Some of the data mining goals at this stage are:
+In educational data mining it is important to classify learner performance and engagement. Furthermore, it is important to assess the material provided and the levels of engagement they provided. Some of the data mining goals at this stage are:
 
 1. Learner background information.
 2. Extraction of learner course completion across all runs.
@@ -40,9 +40,9 @@ In addition, a successful Data Mining process will be derived by:
 - The appropriate method used to provide a coherent discussion,
 
 ## Project plan 
-The tools and techniques that are going to be used include Git version control, ProjectTemplate for R and RMarkdown. Git version control is a system that allows to keep track the changes made to the code over time. As such, collaboration is made possible because specific changes on the work are tracked and tagged by various contributors. The work for this project will be conducted by the author of this report, allowing for further expansion of the work with other collaborators in the future. ProjectTemplate in R allows for the automation of new statistical analysis projects. In addition, it provides a directory structure that automate data loading, preprocessing, library importing and testing. Finally, RMarkdown is a versatile open source markup language and can be used to format plain text while enabling the user to directly post their work on web pages if they must.
+The tools and techniques that are going to be used include Git version control, ProjectTemplate for R and RMarkdown. Git version control is a system that allows to keep track the changes made to the code over time. As such, collaboration is made possible because specific changes on the work are tracked and tagged by various contributors. The work for this project will be conducted by the author of this report, allowing for further expansion of the work with other collaborators in the future. ProjectTemplate in R allows for the automation of new statistical analysis projects. In addition, it provides a directory structure that automates data loading, preprocessing, library importing and testing. Finally, RMarkdown is a versatile open source markup language and can be used to format plain text while enabling the user to directly post their work on web pages if they must. For data transformation and visualization dplyr and ggplot2 will be utilize with the ProjectTemplate analysis and pre-processing.
 
-The project plan consists of the tools and techniques mentioned above to dwell into the data provided from the organization and produce a coherent structured report. The project plan includes the data understanding divided by some appropriate exploration and discussions. Next,is data preparation where the cleaning and construction of the data will take place. Finally, the modelling where in depth analysis will commence. The project plan will be layed out in detail in the next chapters of this report.
+The project plan consists of the tools and techniques mentioned above to dwell into the data provided from the organization and produce a coherent structured report. The project plan includes the data understanding divided by some appropriate exploration and discussions. Next,is data preparation where the cleaning and construction of the data will take place. Finally, the modelling where in depth analysis will commence. The project plan will be laid out in detail in the next chapters of this report.
 
 # Data Understading
 
@@ -68,7 +68,7 @@ The archetype data set consist of the learner and an  archetype answer regarding
 Leaving survey responses includes of course the reason the learners gave for abandoning the course. The question responses data set consists of detailed learner performance regarding quizzes provided throughout the course. The step activity includes step progression for each week as well as started and completion dates for each step in the course. The weekly sentiment responses include weekly feedback from the learners regarding weekly progress. The team members data set consists of description regarding the roles of the teaching team. Lastly, The video stats data set consist of various statistics regarding the video material on the course for example views, percentages watched, devices, geolocation and more.
 
 ## Data exploration
-By exploring the data several questions surfaced  regarding some data sets. The data sets that was deemed appropriate for the outlined goals and business objectives includes the enrollment, question responses, step activity, video stats, leaving survey and weekly survey responses.
+By exploring the data several questions surfaced for a portion of the data sets provided. Although, all data sets where explored and considered for further analysis. The data sets that was deemed appropriate for the outlined goals and business objectives includes the enrollment, question responses, step activity, and video stats. The reasoning will be discussed in detail on the the data selection and construction chapter of this report.
 
 ### Enrollement data set (Run 1)
 The enrollment data set consists of the learners as our observations number and each learner has 13 variables. 
@@ -82,7 +82,7 @@ The question response data set consists of the learners as our observations numb
 ```{r}
 head(cyber.security.1_question.response)
 ```
-Some variables are stored as characters namely learner_id, quiz_question, question_type response, submitted_at, correct. The rest are stored as integers expect cloze_response that is logical and is filled with NAs.It is advicable to further investigate regarding inconsistencies.
+Some variables are stored as characters namely learner_id, quiz_question, question_type response, submitted_at, correct. The rest are stored as integers expect cloze_response that is logical and is filled with NAs.It is advisable to further investigate regarding inconsistencies.
 
 ### Step activity data set (Run 1)
 The step activity data set consists 143092 observations with 6 variables.
@@ -110,21 +110,21 @@ The weekly survey responses consist of 80 observations (learners) and 5 variable
 ```{r}
 head(cyber.security.6_weekly.sentiment.survey.responses)
 ```
-Similarly with the leaving responses they are assigned a survey ID,  variables are stored as characters for the responded_at and the reason. The week_number and the experience_rating are stored as integers. It noticeable that some responses are missing for rating reason.
+Similarly with the leaving responses they are assigned a survey ID,  variables are stored as characters for the responded_at and the reason. The week_number and the experience_rating are stored as integers. It noticeable that some responses are missing for the rating reasons.
 
 ## Verification of data quality
 From the exploration in most data sets inconsistencies were noticed. Specifically, same type of variables where stored as different types, multiple empty rows where discovered, some rows where labeled Unknown. In addition, multiple data sets contain NAs, some columns were empty and in some of the responses surveys the characters contained symbols.
 
-This report is going to cover specific topics and will be using a portion of the data sets available to explore and perform an in depth analysis. After the selection of relevant data sets and rationale for inclusion and exclusion, the cleaning process will be documented where is applicable. In the question response data set sever entries were discovered for some of the questions, the assumption is that the learners were able to resubmit the quiz question if they made a mistake so the focus is sifted to the quiz quality  rather than learner performance. In the step activities data set a mistake was discovered regarding how the steps number variable were recorded and stored appropriate transformation will take place.
+This report is going to cover specific topics and will be using a portion of the data sets available to explore and perform an in depth analysis. After the selection of relevant data sets and rationale for inclusion and exclusion, the cleaning process will be documented where is applicable. In the question response data set repetition of entries were discovered for some of the questions, the assumption is that the learners were able to resubmit the quiz question if they made a mistake so the focus is shifted to the quiz quality  rather than learner performance. In the step activities data set a mistake was discovered regarding how the steps number variable were recorded and stored, appropriate transformation will take place.
 
 # Data preparation
 
 ## Selection of data
 
-In this chapter an explanation will be given for the selection of the data that was previous discussed in data exploration. Each data set will be discussed and goals will be outlined for the production of the analysis. Furthermore, steps taken for cleaning, construction, integration and reformation will be discussed. It is important to state that the data preparation takes into account all the goals and methods outlined above. Specifically, general statistics, engagement, performance and various elements that will be derived from the analysis.
+In this chapter an explanation will be given for the selection of the data that was previous mentioned in data exploration. Each data set will be discussed and goals will be outlined for the production of the analysis. Furthermore, steps taken for cleaning, construction, integration and reformation will be discussed. It is important to state that the data preparation takes into account all the goals and methods outlined above. Namely, general statistics, engagement, performance and various elements that will be derived from the analysis.
 
 ### Enrollment
-In the enrollment data set it is possible to extract a count of the people enrolled and their background information. In addition, we can calculate the percentage of the learners that fully participated in the course for the each run. This will show a scale of popularity among the runs and completion rates. Also some generic statistics about the learners.
+In the enrollment data set it is possible to extract a count of the people enrolled and their background information. In addition, calculation of the percentage of the learners that fully participated in the course for the each run is  possible. This will show a scale of popularity among the runs and completion rates. Also, some generic statistics about the learners will be generated
 
 Analysis goals:
 
@@ -132,7 +132,7 @@ Analysis goals:
 2. Course Engagement rates 
 
 ### Questions responses 
-The question response data set contain variables regarding quiz performance for each learner. Quizzes are a satisfactory way to access learner performance regarding the teaching material provided across 3 weeks for each run where is applicable.
+The question response data set contain variables regarding quiz performance for each learner. Quizzes are a satisfactory way to access learner performance regarding the teaching material provided across 3 weeks for each run were the data quality and volume is sufficient.
 
 Analysis goals:
 
@@ -147,11 +147,11 @@ Analysis goals:
 1. Time it took learners to complete each week. 
 2. Percentage of learners that completed every step.
 3. Percentage of learners that completed each each week.
-4 Completion ration for each step.
+4 Completion ratio for each step.
 5. Most popular step type discussion.
 
 ### Video stats 
-The video stats data set will enable the analysis to dwell deeper into this specific step type in order to get some context and some statistics of how well this step type was received by the learners as well as how it was conducted by the teaching team. Several assumptions could be taken beforehand that will be discussed in the analysis section.
+The video stats data set enables the analysis to dwell deeper into this specific step type, getting context and statistics of how well this step type was received by the learners as well as how it was conducted by the teaching team. Several assumptions could be taken beforehand that will be discussed in the analysis section.
 
 Analysis goals:
 
@@ -159,20 +159,6 @@ Analysis goals:
 2. Percentages of viewers filtered by device utilized
 3. Percentages of viewers from each continent.
 
-### Question about leaving survey
-This data set will be used to provide context for the discussion of the results if its applicable.
-
-Analysis goals:
-
-1. Categorizing leaving reasons and allocation of learners
-2. Comparison with step analysis results to derive some context in terms of steps quality.
-
-### Questions about weekly survey
-Similarly with the leaving survey this data set will be utilized for context if the findings are relevant.
-
-Analysis goals:
-
-1. Categorizing experience rating for steps outlined.
 
 ## Data cleaning and data construction
 
@@ -216,5 +202,5 @@ In video stats data set the last column is empty and will be removed but in gene
 ### Video stats data construction for analysis
 For the analysis the total_views column is needed alongside the video_duration and the step_position to investigate engagement e.g. the relation of the video lengths and the views for each step. Also, the columns regarding the devices used for viewing will be kept to provide an understanding of the viewing circumstances. Lastly, the columns regarding the continents will be used to provide general statistics regarding the videos.
 
-Three new data frame were constructed for the views, devices and continents.
+Three new data frames were constructed for the views, devices and continents.
 
