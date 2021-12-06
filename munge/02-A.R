@@ -1,6 +1,5 @@
 #Run 2 pre processing script 
-#Enrollments run 1 pre-processing.
-
+#Enrollments run  pre-processing.
 
 #Checking and remove NAs
 sum(is.na(cyber.security.2_enrolments))

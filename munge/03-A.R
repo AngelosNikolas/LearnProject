@@ -1,6 +1,6 @@
 # Run 3
 # Pre-processing script
-#Enrollments run 1 pre-processing.
+#Enrollments run pre-processing.
 library(dplyr)
 library(tidyverse)
 
@@ -38,7 +38,7 @@ UnknownEducation3 = filter(cyber.security.3_enrolments, highest_education_level 
 
 #Allocating employment status
 distinct(cyber.security.3_enrolments, employment_status)
-UnknownEmployment = filter(cyber.security.3_enrolments, employment_status == "Unknown")   
+UnknownEmployment4 = filter(cyber.security.3_enrolments, employment_status == "Unknown")   
 
 ########################################################################################################################
 #Question.response data set prepossessing 

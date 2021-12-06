@@ -2,9 +2,7 @@
 #Pre-processing script 
 
 
-#Enrollments run 1 pre-processing.
-library(dplyr)
-library(tidyverse)
+#Enrollments run  pre-processing.
 
 #Checking and remove NAs
 sum(is.na(cyber.security.4_enrolments))

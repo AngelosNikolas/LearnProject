@@ -14,23 +14,13 @@ cyber.security.1_enrolments[rowSums(is.na(cyber.security.1_enrolments)) != ncol(
 cyber.security.1_enrolments$learner_id[duplicated(cyber.security.1_enrolments$learner_id)]
 
 #############DATA CONSTRUCTION##############
+# Creation of new set containing learner that fully finished the course.
 Fully_finished1 = cyber.security.1_enrolments [!(!is.na(cyber.security.1_enrolments$fully_participated_at) & cyber.security.1_enrolments$fully_participated_at==""), ]
-Fully_finished2 = cyber.security.2_enrolments [!(!is.na(cyber.security.2_enrolments$fully_participated_at) & cyber.security.2_enrolments$fully_participated_at==""), ]
-Fully_finished3 = cyber.security.3_enrolments [!(!is.na(cyber.security.3_enrolments$fully_participated_at) & cyber.security.3_enrolments$fully_participated_at==""), ]
-Fully_finished4 = cyber.security.4_enrolments [!(!is.na(cyber.security.4_enrolments$fully_participated_at) & cyber.security.4_enrolments$fully_participated_at==""), ]
-Fully_finished5 = cyber.security.5_enrolments [!(!is.na(cyber.security.5_enrolments$fully_participated_at) & cyber.security.5_enrolments$fully_participated_at==""), ]
-Fully_finished6 = cyber.security.6_enrolments [!(!is.na(cyber.security.6_enrolments$fully_participated_at) & cyber.security.6_enrolments$fully_participated_at==""), ]
-Fully_finished7 = cyber.security.7_enrolments [!(!is.na(cyber.security.7_enrolments$fully_participated_at) & cyber.security.7_enrolments$fully_participated_at==""), ]
 
 
-dim(cyber.security.7_enrolments)
+#Calculating the percentage of fully participation.
 fully_participated1 = (1803*100)/14840 
-fully_participated2 = (33*100)/6488
-fully_participated3 = (56*100)/3361
-fully_participated4 = (166*100)/3992
-fully_participated5 = (22*100)/3544
-fully_participated6 = (31*100)/3175
-fully_participated7 = (43*100)/2342
+
 
 #Allocating genders for fully participated learners
 MaleLearners1 = filter(Fully_finished1, gender == "male")
