@@ -13,7 +13,8 @@ knitr::opts_knit$set(root.dir= normalizePath('..'))
 # Load project
 library("ProjectTemplate")
 load.project()
-
+# Run code in analysis.R script
+source("src/analysis.R")
 ```
 # Buisness understanding
 
@@ -179,7 +180,7 @@ cyber.security.1_enrolments$learner_id[duplicated(cyber.security.1_enrolments$le
 
 ```
 ### Enrolment data constuction for analysis
-For the enrollment a new data frame is constructed containing the learners that fully participated in the course. Furthermore, this new subset is filtered by gender, education and employment status. Lastly, the same filters are applied in the full data set. 
+For the enrollment a new data frame is constructed containing the learners that fully participated in the course. Furthermore, this new subset is filtered by gender, education and employment status the resulting data sets will be utilized in the analysis section.
 
 ### Question response cleaning
 Firstly the empty cloze_response column is removed. Then we check for NAs it appears there are none:
@@ -204,3 +205,30 @@ For the analysis the total_views column is needed alongside the video_duration a
 
 Three new data frames were constructed for the views, devices and continents.
 
+# Analysis
+
+## Enrollements
+The analysis starts with the enrollment data set. The first goal is to make a comparison regarding the enrolled learners throughout the all runs.
+```{r}
+EnrollCountPlot
+```
+The plot depicts all enrollments made in each run the most popular one being the first 14840 enrolled learners after that comes the second run with 6488. The rest runs are similar in terms of people enrolled indicating that the most popular one was the first.
+Next, the fully participation percentages can be computed meaning how many enrolled learners fully participated throughout the course. In the table below are stored the calculated percentages and then are visualized using a pie chart. 
+```{r}
+Participation_percent
+pie1
+```
+It is noticeable that the first run had 12% completion making it the run with the larger completion rate, taking into consideration that had the most enrolled learners by a significant margin suggesting that the first run its suitable for further investigation regarding the enrollments data set.
+
+Taking that 12% subset for the learner from the first run some investigation took place regarding genders, education and employment.
+```{r}
+Run1Gender
+Education_Plot
+Employment_Plot
+```
+From the table and the plots produced even though the sample is relatively small the unknown values are dominating the analysis. No concrete assumptions can be made regarding the learners background only some categorization and indication of the genders, employment and education can be assumed.
+
+### Enrollements conclussion 
+. The most popular run was the first one that also had the most high completion rate regarding the full course, perhaps indicating it captured the learners interest the most. Unfortunately, the data set contains a significant amount of unknown values making further investigation highly speculative. It would be advisable to keep a better track about the learners in future runs because their background could assist in improving the course for learners that are interested and share similar characteristics.
+
+#Question response
