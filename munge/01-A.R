@@ -28,20 +28,40 @@ FemaleLearners1 = filter(Fully_finished1, gender == "female")
 UnknownGenderLearners1= filter(Fully_finished1, gender == "Unknown")
 
 #Allocating education levels
-univercityDegree = filter(cyber.security.1_enrolments, highest_education_level == "university_degree")
-univercitydoctorate  = filter(cyber.security.1_enrolments, highest_education_level == "university_doctorate")
-professional  = filter(cyber.security.1_enrolments, highest_education_level == "professional")
-UnknownEducation = filter(cyber.security.1_enrolments, highest_education_level == "Unknown")   
+univercityDegree1 = filter(Fully_finished1, highest_education_level == "university_degree")
+univercitydoctorate1  = filter(Fully_finished1, highest_education_level == "university_doctorate")
+univercityMasters1 = filter(Fully_finished1, highest_education_level == "university_masters")
+professional1  = filter(Fully_finished1, highest_education_level == "professional")
+UnknownEducation1 = filter(Fully_finished1, highest_education_level == "Unknown")   
 
 #Allocating employment status
-distinct(cyber.security.1_enrolments, employment_status)
-UnknownEmployment = filter(cyber.security.1_enrolments, employment_status == "Unknown")   
+unique(Fully_finished1$employment_status)
+part_time1 = filter(Fully_finished1, employment_status == "working_part_time")
+full_time1  = filter(Fully_finished1, employment_status == "working_full_time")
+fulltime_Student1 = filter(Fully_finished1, employment_status == "full_time_student")
+unemployed1  = filter(Fully_finished1, employment_status == "unemployed")
+looking_for_work1  = filter(Fully_finished1, employment_status == "looking_for_work")
+Unknown_Status1 = filter(Fully_finished1, employment_status == "Unknown")     
+
+#Constructing a data frame with the enrollment counts for all the runs.
+RunNumber = c('Run1','Run2','Run3','Run4','Run5','Run6','Run7')
+EnrolCount = c(14840,6488,3361,3992,3544,3175,2342 )
+Enroldata = data.frame(RunNumber,EnrolCount)
+
+
+#Construction for the Employment status 
+Employment_Count = c(nrow(part_time1),nrow(full_time1),nrow(fulltime_Student1),nrow(unemployed1),nrow(looking_for_work1),nrow(Unknown_Status1))
+Employment_Levels = c('Part-time','Full_Time','Student','Unemployed','LFwork','Unknown')
+Employment_data = data.frame(Employment_Levels,Employment_Count)
+
+#Construction for the Education status
+Education_Count = c(nrow(univercityDegree1),nrow(univercitydoctorate1),nrow(univercityMasters1),nrow(professional1),nrow(UnknownEducation1))
+Education_Levels = c('Bachelors','PHD','Masters','Professional','Unknown')
+Education_data = data.frame(Education_Levels,Education_Count)
+
 
 ########################################################################################################################
 #Question.response data set prepossessing 
-
-#Remove empty column
-cyber.security.1_question.response = select(cyber.security.1_question.response, -c(cloze_response))
 
 # Check for NAs 
 sum(is.na(cyber.security.1_question.response))
