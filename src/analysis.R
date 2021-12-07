@@ -1,6 +1,7 @@
 library("ProjectTemplate")
 load.project()
 
+########################Enrollments################################
 # Construct a data frame containing the fully participated learners
 Fully_Part=c(fully_participated1,fully_participated2,fully_participated3,fully_participated4,fully_participated5,fully_participated6,fully_participated7)
 Participation_percent= data.frame(RunNumber,Fully_Part)
@@ -39,3 +40,27 @@ Employment_Plot=ggplot(data=Employment_data, aes(x=Employment_Levels, y=Employme
   geom_text(aes(label=Employment_Count), vjust=1.6, color="white", size=3.5)+
   theme_minimal()
 Employment_Plot
+
+########################Question Response#################################
+
+#Plot the question true percentages for the first run
+QuestionsPlot1=ggplot(data=Question_Data, aes(x=Weeks, y=QuestionPercent)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=QuestionPercent), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+QuestionsPlot1
+
+#Plot the question true percentages for the second run
+QuestionsPlot2=ggplot(data=Question_Data2, aes(x=Weeks, y=QuestionPercent2)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=QuestionPercent2), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+QuestionsPlot2
+
+
+#Plot the question true percentages for the third run
+QuestionsPlot3=ggplot(data=Question_Data3, aes(x=Weeks, y=QuestionPercent3)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=QuestionPercent3), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+QuestionsPlot3
