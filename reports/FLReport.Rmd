@@ -183,13 +183,10 @@ cyber.security.1_enrolments$learner_id[duplicated(cyber.security.1_enrolments$le
 For the enrollment a new data frame is constructed containing the learners that fully participated in the course. Furthermore, this new subset is filtered by gender, education and employment status the resulting data sets will be utilized in the analysis section.
 
 ### Question response cleaning
-Firstly the empty cloze_response column is removed. Then we check for NAs it appears there are none:
-```{r}
-sum(is.na(cyber.security.1_question.response))
-```
+In the question response data set the relevant columns are the question number and the correct column for the analysis conducted. These two columns have been checked and they do not indicate any problems.
 
 ### QUestion response data constuction for analysis
-For the question response data set 3 data frames are constructed filtered by the correct answers for the questions for each week respectively. This will later utilized to compare performance in terms of success. Furthermore, the worst performing week will be analyzed further. The results will be stored inside a table.
+For the question response data set 3 data frames are constructed filtered by the correct answers for the questions for each week respectively. This will later utilized to compare performance in terms of success. Furthermore, the best performing week will be analyzed further. The results will be stored inside a new set to visualized in the analysis section.
 
 ### Step activity Cleaning
 The step activity has an issue on the step number variable. Specifically is not possible to distinguish the 1.1 step from 1.10, to fix that problem multiplication by 100 took place so now 101 refers to step 1.1 and 110 to step 1.10. The data set does not contain any NA rows. In terms of quality the step activity can be considered appropriate for the work intended.
@@ -209,19 +206,19 @@ Three new data frames were constructed for the views, devices and continents.
 
 ## Enrollements
 The analysis starts with the enrollment data set. The first goal is to make a comparison regarding the enrolled learners throughout the all runs.
-```{r}
+```{r , fig.width=6, fig.height=2} 
 EnrollCountPlot
 ```
 The plot depicts all enrollments made in each run the most popular one being the first 14840 enrolled learners after that comes the second run with 6488. The rest runs are similar in terms of people enrolled indicating that the most popular one was the first.
 Next, the fully participation percentages can be computed meaning how many enrolled learners fully participated throughout the course. In the table below are stored the calculated percentages and then are visualized using a pie chart. 
-```{r}
+```{r , fig.width=6, fig.height=3} 
 Participation_percent
 pie1
 ```
 It is noticeable that the first run had 12% completion making it the run with the larger completion rate, taking into consideration that had the most enrolled learners by a significant margin suggesting that the first run its suitable for further investigation regarding the enrollments data set.
 
 Taking that 12% subset for the learner from the first run some investigation took place regarding genders, education and employment.
-```{r}
+```{r , fig.width=6, fig.height=2} 
 Run1Gender
 Education_Plot
 Employment_Plot
@@ -231,4 +228,13 @@ From the table and the plots produced even though the sample is relatively small
 ### Enrollements conclussion 
 . The most popular run was the first one that also had the most high completion rate regarding the full course, perhaps indicating it captured the learners interest the most. Unfortunately, the data set contains a significant amount of unknown values making further investigation highly speculative. It would be advisable to keep a better track about the learners in future runs because their background could assist in improving the course for learners that are interested and share similar characteristics.
 
-#Question response
+##Question response
+For the analysis only the runs 1, 2 and 3 will be analyzed. The reasons for this decision is the difference that was noticed in the enrollment analysis between the runs. Furthermore, the first run is a very indicative for the performance of the course, on the second run and onward differences in the steps were noticed. Indicating changes that occurred in the course structure after the first run. This will be further analyzed with the step activity investigation. The third run is also important because video stats are introduced which are a part of the analysis.
+
+Regarding, the analysis that took place for the quiz responses each run was divided by 3 weeks and for each week the successful answers where measured to produce a percentage of completion.
+```{r , fig.width=6, fig.height=2} 
+QuestionsPlot1
+QuestionsPlot2
+QuestionsPlot3
+```
+It is quite clear that similar results were produced on all runs. Meaning the changes occurred after the first run did not affect the successful quiz ratio. The first week was the most successful on all three runs. Many assumption could be derived as to why, looking into the step activity data set could shed some light.
