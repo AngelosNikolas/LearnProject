@@ -64,3 +64,49 @@ QuestionsPlot3=ggplot(data=Question_Data3, aes(x=Weeks, y=QuestionPercent3)) +
   geom_text(aes(label=QuestionPercent3), vjust=1.6, color="white", size=3.5)+
   theme_minimal()
 QuestionsPlot3
+
+###################Step Activity#############################################
+#Run 1
+
+#Plotting the the completion percentages for each weak
+Step1Plot1=ggplot(data=Step_data1, aes(x=Step_Weeks, y=Step_percentages1)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Step_percentages1), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+Step1Plot1
+
+#Plotting the step completion for each step type
+Step1Plot2=ggplot(data=Step_Types_data1, aes(x=Step_Types, y=Step_Completion1)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  theme(axis.text.x = element_text(angle=65, vjust=0.6))
+Step1Plot2
+
+#Run 2
+
+#Plotting the the completion percentages for each weak
+Step2Plot1=ggplot(data=Step_data2, aes(x=Step_Weeks, y=Step_percentages2)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Step_percentages2), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+Step2Plot1
+
+#Plotting the step completion for each step type
+Step2Plot2=ggplot(data=Step_Types_data2, aes(x=Step_Types, y=Step_Completion2)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  theme(axis.text.x = element_text(angle=65, vjust=0.6))
+Step2Plot2
+
+#Run 3
+
+#Plotting the the completion percentages for each weak
+Step3Plot1=ggplot(data=Step_data3, aes(x=Step_Weeks, y=Step_percentages3)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Step_percentages3), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+Step3Plot1
+
+#Plotting the step completion for each step type
+Step3Plot2=ggplot(data=Step_Types_data3, aes(x=Step_Types, y=Step_Completion3)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  theme(axis.text.x = element_text(angle=65, vjust=0.6))
+Step3Plot2
