@@ -154,6 +154,7 @@ Step_Types_data3 = data.frame(Step_Types,Step_Completion3)
 sum(is.na(cyber.security.3_video.stats))
 
 ############## DATA CONSTRUCTION##################################3
-video_views1 = select(cyber.security.3_video.stats, c(1:15))
-Video_devices1 = select(cyber.security.3_video.stats, c(16:21))
-video_location1 = select(cyber.security.3_video.stats, c(22:28))
+video_views3 = select(cyber.security.3_video.stats, c(1:15))
+
+Video_devices3 = select(cyber.security.3_video.stats, c(16:21))
+video_location3 = select(cyber.security.3_video.stats, c(22:28))
