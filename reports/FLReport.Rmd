@@ -145,11 +145,9 @@ Step activity is a particularly useful data set because it contains details abou
 
 Analysis goals:
 
-1. Time it took learners to complete each week. 
-2. Percentage of learners that completed every step.
-3. Percentage of learners that completed each each week.
-4 Completion ratio for each step.
-5. Most popular step type discussion.
+1. Percentage of steps completed each week.
+2. Completion ratio for each step type.
+3. Most popular step type discussion.
 
 ### Video stats 
 The video stats data set enables the analysis to dwell deeper into this specific step type, getting context and statistics of how well this step type was received by the learners as well as how it was conducted by the teaching team. Several assumptions could be taken beforehand that will be discussed in the analysis section.
@@ -237,4 +235,37 @@ QuestionsPlot1
 QuestionsPlot2
 QuestionsPlot3
 ```
-It is quite clear that similar results were produced on all runs. Meaning the changes occurred after the first run did not affect the successful quiz ratio. The first week was the most successful on all three runs. Many assumption could be derived as to why, looking into the step activity data set could shed some light.
+
+It is quite clear that similar results were produced on all runs. Meaning the changes occurred after the first run did not affect the successful quiz ratio. The first week was the most successful on all three runs. This could indicate that the material were more advanced from week to week or the structure of the teaching types somehow affected the quiz performance of the learners.
+
+##Step activity 
+
+In the step activity data the focus is on the completion rates for the steps. The analysis were conducted on the first three runs similarly with the question responses. Firstly, the data were spitted to 3 weeks for each run to calculate the completion percentages and compare each week. Each plot its depicted below starting with the first run through run number three.
+```{r , fig.width=6, fig.height=2}
+Step1Plot1
+Step2Plot1
+Step3Plot1
+```
+
+The completion rates are acceptable most of the people that started the steps completed them. It is noticeable that the first week has the lowest completion rates for all steps combined. The assumption that could be made is that the material of the first week wasn't adequate enough to sustain the engagement of the learners.
+The learning material contain different step types, namely Videos, Articles, Discussions, Quizzes and Exercises. This is not apparent for all types from the data sets with the exclusion of quizzes and videos that have their own sets. The pdf files that accompanied the data have a detailed structure of the course for each run. The goal was to compare each step type with the other in terms of completion. The following plots were produced for each run respectively:
+```{r}
+Step1Plot2
+Step2Plot2
+Step3Plot2
+```
+
+Again as expected the completion rate is significant with minor changes across runs. Although, the type are not equal is size. The following table depicts the step number counts for the first run:
+```{r}
+table1
+```
+
+The discussions, quizzes and exercises are a fraction of the contents of the learning materials and cannot be indicative about the engagement although,they are important in the purpose they serve. It is noticeable that the articles are dominating the course in terms of what materials are provided by the teaching team. Despite almost appearing 3 times more  compared to the videos their completion percentages are very similar. The articles are crucial for the course due to the majority of the material provided being in article form. Although, videos could provide a better alternative or at the very least the material could be equally divided on both articles and videos.
+
+## Video stats
+
+The video stats data set contains various information about the videos viewed throughout the course by the learners. The first investigation focus on what affects viewership. In that regard, a plot created depicted total views and video duration:
+```{r}
+VideoPlot1
+```
+The plot seems to indicate that when the duration is roughly between 200 and 350 seconds the views on average are at 600 . An outlier is noticeable in a very short video but no solid conclusions can be discussed. Although, and assumption can be made could about the suggested video lengths. The videos shouldn't be too short or too long, this could negatively affect engagement levels by the learners.
