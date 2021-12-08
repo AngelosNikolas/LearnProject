@@ -63,26 +63,46 @@ Education_data = data.frame(Education_Levels,Education_Count)
 ########################################################################################################################
 #Question.response data set prepossessing 
 
-# Check for NAs 
-sum(is.na(cyber.security.1_question.response))
 
 #############DATA CONSTRUCTION##############
 str(cyber.security.1_question.response)
 unique(cyber.security.1_question.response$quiz_question)
-str(cyber.security.1_question.response$quiz_question)
+
 
 # Extracting the correct answers regarding the 1st week
-Week1Correct = filter(cyber.security.1_question.response, step_number == 7)
-Week1Correct =  filter(cyber.security.1_question.response, correct == "true" )
+Week1Correct1 = filter(cyber.security.1_question.response, week_number == 1)
+Week1Correct1 =  filter(Week1Correct1, correct == "true" )
+
+# Extracting all the answers for week 1
+filter(cyber.security.1_question.response, week_number == 1)
+
+#Calculating percentage of completion
+Week1TruePercentage = (19105*0.1)/28.471
 
 # Extracting the correct answers regarding the 2st week
-Week2Correct = filter(cyber.security.1_question.response, step_number == 8)
-Week2Correct =  filter(cyber.security.1_question.response, correct == "true" )
+Week2Correct1 = filter(cyber.security.1_question.response, week_number == 2)
+Week2Correct1 =  filter(Week2Correct1, correct == "true" )
+
+# Extracting all the answers for week 1
+filter(cyber.security.1_question.response, week_number == 2)
+
+#Calculating percentage of completion
+Week2TruePercentage = (5672*0.1)/11.362
 
 # Extracting the correct answers regarding the 3st week
-Week3Correct = filter(cyber.security.1_question.response, step_number == 11)
-Week3Correct =  filter(cyber.security.1_question.response, correct == "true" )
+Week3Correct1 = filter(cyber.security.1_question.response, week_number == 3)
+Week3Correct1 =  filter(Week3Correct1, correct == "true" )
 
+# Extracting all the answers for week 1
+filter(cyber.security.1_question.response, week_number == 3)
+
+#Calculating percentage of completion
+Week3TruePercentage = (4490*0.1)/10.118
+
+#Construction for the completion rates
+Weeks = c('Week1','Week2','Week3')
+QuestionPercent = c(Week1TruePercentage,Week2TruePercentage,Week3TruePercentage) 
+Question_Data = data.frame(Weeks,QuestionPercent)
 ######################################################################
 #Step activity pre-processing
 
@@ -98,25 +118,44 @@ sum(is.na(cyber.security.1_step.activity$learner_id))
 
 #Filter by week 1
 Week1Steps1 = filter(cyber.security.1_step.activity, week_number == 1)
-
-#Extract the number of how many didnt completed the steps
+#Extract the number of how many didn't completed the steps
 filter(Week1Steps1 , last_completed_at == "")
-#Extract the count of observations that completed step 1
-filter(Week1Steps1, step_number == 1 , !last_completed_at == "" )
-filter(Week1Steps1, step_number == 1 , last_completed_at == "" )
+#Extract the number of how many did not completed the steps and how many did
+filter(Week1Steps1, week_number == 1 , !last_completed_at == "" )
+filter(Week1Steps1, week_number == 1 , last_completed_at == "" )
+Week1Step1Perc = (6289*0.1)/57.308
 
 #Filter by week 2
 Week2Steps1 = filter(cyber.security.1_step.activity, week_number == 2)
-#Extract the number of how many did not completed the steps
-filter(Week2Steps1 , last_completed_at == "")
+#Extract the number of how many did not completed the steps and how many did
+filter(Week2Steps1, week_number == 2 , !last_completed_at == "" )
+filter(Week2Steps1, week_number == 2 , last_completed_at == "" )
+Week2Step1Perc = (1.795*100)/41.710
 
 #Filter by week 3
 Week3Steps1 = filter(cyber.security.1_step.activity, week_number == 3)
-#Extract the number of how many didnt completed the steps
-filter(Week3Steps1 , last_completed_at == "")
+#Extract the number of how many didn't completed the steps and how many did
+filter(Week3Steps1, week_number == 3 , !last_completed_at == "" )
+filter(Week3Steps1, week_number == 3 , last_completed_at == "" )
+Week3Step1Perc = (2.241*100)/33.749
 
+#Creation of new data frames for analysis
+Step_Weeks = c('Week1','Week2','Week3')
+Step_percentages = c(Week1Step1Perc,Week2Step1Perc,Week3Step1Perc)
+Step_data = data.frame(Step_Weeks,Step_percentages)
 
+#Categorizing the step categories
+Videos1 = filter(cyber.security.1_step.activity, step %in% c("101","104","113","116","118","201","204","216","301","302","314","315"))
+filter(Videos1, week_number == 1 , !last_completed_at == "" )
 
+Articles1 = filter(cyber.security.1_step.activity, step %in% c("102","105","106","108","111","112","114","115","117","202","205","207","208","210","211","212","213","214","215","217","218","220","305","306","307","308","309","310","313","317","320","321"))
+filter(Articles1, week_number == 1 , !last_completed_at == "" )
 
+Discussions1 = filter(cyber.security.1_step.activity, step %in% c("109","110","206","221","304","312","316","319"))
+filter(Discussions1, week_number == 1 , !last_completed_at == "" )
 
-    
+Quizes1 = filter(cyber.security.1_step.activity, step %in% c("107","208","219","311","318"))
+filter(Quizes1, week_number == 1 , !last_completed_at == "" )
+
+Exercises1 = filter(cyber.security.1_step.activity, step %in% c("103","203","303"))
+filter(Exercises1, week_number == 1 , !last_completed_at == "" )
