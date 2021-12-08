@@ -110,3 +110,26 @@ Step3Plot2=ggplot(data=Step_Types_data3, aes(x=Step_Types, y=Step_Completion3)) 
   geom_bar(stat="identity", fill="steelblue")+
   theme(axis.text.x = element_text(angle=65, vjust=0.6))
 Step3Plot2
+
+#Table containing the number of steps for each type
+Table1 = matrix(c(12,32,3,8,4))
+colnames(table1) = (c("Videos","Articles","Discussions","Quizes","Exercises")) 
+
+table1= a<- data.frame(Types = c("Videos","Articles","Discussions","Quizes","Exercises"),
+                       Count = c(12,32,3,8,4))
+
+
+########################## Video stats ###########################################
+
+
+
+VideoPlot1 = ggplot(data=video_views3, aes(x=video_duration, y=total_views)) +
+  geom_point(size=3) + 
+  geom_segment(aes(x=video_duration, 
+                   xend=video_duration, 
+                   y=0, 
+                   yend=total_views))  
+  
+VideoPlot1
+
+
