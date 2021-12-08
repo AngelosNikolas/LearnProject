@@ -122,40 +122,49 @@ Week1Steps1 = filter(cyber.security.1_step.activity, week_number == 1)
 filter(Week1Steps1 , last_completed_at == "")
 #Extract the number of how many did not completed the steps and how many did
 filter(Week1Steps1, week_number == 1 , !last_completed_at == "" )
-filter(Week1Steps1, week_number == 1 , last_completed_at == "" )
-Week1Step1Perc = (6289*0.1)/57.308
+Week1Step1Perc = (57.308*100000)/63577
 
 #Filter by week 2
 Week2Steps1 = filter(cyber.security.1_step.activity, week_number == 2)
 #Extract the number of how many did not completed the steps and how many did
 filter(Week2Steps1, week_number == 2 , !last_completed_at == "" )
-filter(Week2Steps1, week_number == 2 , last_completed_at == "" )
-Week2Step1Perc = (1.795*100)/41.710
+Week2Step1Perc = (41.710*100)/43.505
 
 #Filter by week 3
 Week3Steps1 = filter(cyber.security.1_step.activity, week_number == 3)
 #Extract the number of how many didn't completed the steps and how many did
 filter(Week3Steps1, week_number == 3 , !last_completed_at == "" )
-filter(Week3Steps1, week_number == 3 , last_completed_at == "" )
-Week3Step1Perc = (2.241*100)/33.749
+Week3Step1Perc = (33.749*100)/35.990
 
 #Creation of new data frames for analysis
 Step_Weeks = c('Week1','Week2','Week3')
-Step_percentages = c(Week1Step1Perc,Week2Step1Perc,Week3Step1Perc)
-Step_data = data.frame(Step_Weeks,Step_percentages)
+Step_percentages1 = c(Week1Step1Perc,Week2Step1Perc,Week3Step1Perc)
+Step_data1 = data.frame(Step_Weeks,Step_percentages1)
 
-#Categorizing the step categories
+#Categorizing the step categories and calculating percentages of completion 
 Videos1 = filter(cyber.security.1_step.activity, step %in% c("101","104","113","116","118","201","204","216","301","302","314","315"))
-filter(Videos1, week_number == 1 , !last_completed_at == "" )
+filter(Videos1, !last_completed_at == "" )
+VideosPerc1 = (28.796*100000)/32039
 
 Articles1 = filter(cyber.security.1_step.activity, step %in% c("102","105","106","108","111","112","114","115","117","202","205","207","208","210","211","212","213","214","215","217","218","220","305","306","307","308","309","310","313","317","320","321"))
-filter(Articles1, week_number == 1 , !last_completed_at == "" )
+filter(Articles1 , !last_completed_at == "" )
+ArticlesPerc1 = (69.661*100000)/74345
 
 Discussions1 = filter(cyber.security.1_step.activity, step %in% c("109","110","206","221","304","312","316","319"))
-filter(Discussions1, week_number == 1 , !last_completed_at == "" )
+filter(Discussions1 , !last_completed_at == "" )
+DiscussionsPerc1 = (16.258*100000)/17000
 
 Quizes1 = filter(cyber.security.1_step.activity, step %in% c("107","208","219","311","318"))
-filter(Quizes1, week_number == 1 , !last_completed_at == "" )
+filter(Quizes1, !last_completed_at == "" )
+QuizesPerc1 = (10.095*100000)/11048
 
 Exercises1 = filter(cyber.security.1_step.activity, step %in% c("103","203","303"))
-filter(Exercises1, week_number == 1 , !last_completed_at == "" )
+filter(Exercises1, !last_completed_at == "" )
+ExercisesPerc1 = (7.901*100000)/8678
+
+#Construction for the step types
+Step_Types = c("Videos","Articles","Discussions","Quizes","Exercises")
+Step_Completion1 = c(VideosPerc1,ArticlesPerc1,DiscussionsPerc1,QuizesPerc1,ExercisesPerc1)
+Step_Types_data1 = data.frame(Step_Types,Step_Completion1)
+
+
