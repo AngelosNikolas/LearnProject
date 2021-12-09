@@ -40,31 +40,6 @@ distinct(cyber.security.4_enrolments, employment_status)
 UnknownEmployment4 = filter(cyber.security.4_enrolments, employment_status == "Unknown")   
 
 ########################################################################################################################
-#Question.response data set prepossessing 
-
-#Remove empty column
-cyber.security.4_question.response = select(cyber.security.4_question.response, -c(cloze_response))
-
-# Check for NAs 
-sum(is.na(cyber.security.4_question.response))
-
-#############DATA CONSTRUCTION##############
-str(cyber.security.4_question.response)
-unique(cyber.security.4_question.response$quiz_question)
-str(cyber.security.4_question.response$quiz_question)
-
-# Extracting the correct answers regarding the 1st week
-Week1Correct4 = filter(cyber.security.4_question.response, step_number == 7)
-Week1Correct4 =  filter(cyber.security.4_question.response, correct == "true" )
-
-# Extracting the correct answers regarding the 2st week
-Week2Correct4 = filter(cyber.security.4_question.response, step_number == 8)
-Week2Correct4 =  filter(cyber.security.4_question.response, correct == "true" )
-
-# Extracting the correct answers regarding the 3st week
-Week3Correct4 = filter(cyber.security.4_question.response, step_number == 11)
-Week3Correct4 =  filter(cyber.security.4_question.response, correct == "true" )
-
 ######################################################################
 #Step activity pre-processing
 
