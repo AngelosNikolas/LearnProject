@@ -154,7 +154,18 @@ Step_Types_data3 = data.frame(Step_Types,Step_Completion3)
 sum(is.na(cyber.security.3_video.stats))
 
 ############## DATA CONSTRUCTION##################################3
+#Filtering for the views
 video_views3 = select(cyber.security.3_video.stats, c(1:15))
+video_views3 = filter(video_views3, viewed_ninetyfive_percent > 64.00 )
 
+#Filtering for the devices
 Video_devices3 = select(cyber.security.3_video.stats, c(16:21))
+deviceCat= c("Console"," Desktop","Mobile","TV","Tablet","Unknown")
+deviceMeans = colMeans(Video_devices3)
+Device_data = data.frame(deviceCat,deviceMeans)
+
+#Filtering for the location
 video_location3 = select(cyber.security.3_video.stats, c(22:28))
+LocationCat= c("Europe"," Oceania","Asia","NorthAmerica","SouthAmerica","Africa","Antarctica")
+LocationsMeans = colMeans(video_location3)
+Location_data = data.frame(LocationCat,LocationsMeans)
