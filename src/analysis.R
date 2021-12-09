@@ -8,12 +8,13 @@ Participation_percent= data.frame(RunNumber,Fully_Part)
 View(Participation_percent)
 
 #Plot the enrollment counts 
-EnrollCountPlot=ggplot(data=Enroldata, aes(x=RunNumber, y=EnrolCount)) +
+EnrollCountPlot=ggplot(data=Enroldata, aes(x=reorder(RunNumber, -EnrolCount), y=EnrolCount)) +
   geom_bar(stat="identity", fill="steelblue")+
   geom_text(aes(label=EnrolCount), vjust=1.6, color="white", size=3.5)+
   theme_minimal()
 
 EnrollCountPlot
+
 #Plot the participation percentages
 bp1<- ggplot(Participation_percent, aes(x="", y=Fully_Part, fill=RunNumber))+
   geom_bar(width = 1, stat = "identity")
@@ -27,7 +28,7 @@ Run1Gender = data.frame(Gender,Gender_count)
 
 
 #Plot education for run 1
-Education_Plot=ggplot(data=Education_data, aes(x=Education_Levels, y=Education_Count)) +
+Education_Plot=ggplot(data=Education_data, aes(x=reorder(Education_Levels,-Education_Count), y=Education_Count)) +
   geom_bar(stat="identity", fill="steelblue")+
   geom_text(aes(label=Education_Count), vjust=1.6, color="white", size=3.5)+
   theme_minimal()
@@ -35,7 +36,7 @@ Education_Plot
 View(Education_data)
 
 #Plot employment status for run 1
-Employment_Plot=ggplot(data=Employment_data, aes(x=Employment_Levels, y=Employment_Count)) +
+Employment_Plot=ggplot(data=Employment_data, aes(x=reorder(Employment_Levels,-Employment_Count), y=Employment_Count)) +
   geom_bar(stat="identity", fill="steelblue")+
   geom_text(aes(label=Employment_Count), vjust=1.6, color="white", size=3.5)+
   theme_minimal()
@@ -69,7 +70,7 @@ QuestionsPlot3
 #Run 1
 
 #Plotting the the completion percentages for each weak
-Step1Plot1=ggplot(data=Step_data1, aes(x=Step_Weeks, y=Step_percentages1)) +
+Step1Plot1=ggplot(data=Step_data1, aes(x=reorder(Step_Weeks,-Step_percentages1), y=Step_percentages1)) +
   geom_bar(stat="identity", fill="steelblue")+
   geom_text(aes(label=Step_percentages1), vjust=1.6, color="white", size=3.5)+
   theme_minimal()
@@ -121,7 +122,12 @@ table1= a<- data.frame(Types = c("Videos","Articles","Discussions","Quizes","Exe
 
 ########################## Video stats ###########################################
 
+#Calculating the mean of 95% watched
+mean(video_views3$viewed_ninetyfive_percent)
+#Calculating the mean of video duration
+mean(cyber.security.3_video.stats$video_duration)
 
+#Plotting the duration vs total views
 
 VideoPlot1 = ggplot(data=video_views3, aes(x=video_duration, y=total_views)) +
   geom_point(size=3) + 
@@ -129,7 +135,16 @@ VideoPlot1 = ggplot(data=video_views3, aes(x=video_duration, y=total_views)) +
                    xend=video_duration, 
                    y=0, 
                    yend=total_views))  
-  
 VideoPlot1
 
+#Plotting the devices percentages
+VideoPlot2=ggplot(data=Device_data, aes(x=reorder(deviceCat, -deviceMeans), y=deviceMeans)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  theme_minimal()
+VideoPlot2
 
+#Plotting the location percentages
+VideoPlot3=ggplot(data=Location_data, aes(x=reorder(LocationCat, -LocationsMeans), y=LocationsMeans)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  theme_minimal()
+VideoPlot3
