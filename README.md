@@ -1,4 +1,5 @@
 # LearnProject
+This project is based on Learning Analytics following the Crisp-DM Methodology. The Project is utilizing the ProjectTemplate framework within R Studio see documentation here: http://projecttemplate.net/getting_started.html. 
 
 # Project Instructions 
  1. Extract the contents of the zip
